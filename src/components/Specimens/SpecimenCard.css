@@ -1,0 +1,174 @@
+/* src/components/Specimens/SpecimenCard.css */
+
+/* --- ESTILOS BASE DE LA TARJETA (DEBEN COINCIDIR CON CategoryCard.css en su "espíritu") --- */
+.spec-card-final {
+  border-radius: 10px;
+  margin-bottom: 0;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e0e0e0; /* AJUSTA este color al de tu CategoryCard */
+  background-color: #ffffff; /* AJUSTA este color al de tu CategoryCard */
+  color: #333; /* AJUSTA este color al de tu CategoryCard */
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.spec-card-final:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Cuerpo de la tarjeta */
+.spec-card-body {
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Esto es menos relevante ahora sin el bottom-section separado */
+  flex-grow: 1;
+}
+
+/* --- SECCIÓN SUPERIOR (TÍTULO, BADGE Y BOTONES DE ACCIÓN) --- */
+.spec-card-top-section {
+  display: flex; /* Activar Flexbox */
+  justify-content: space-between; /* Espacio entre grupo título/badge y botones */
+  align-items: center; /* Alinear verticalmente los items */
+  margin-bottom: 1rem; /* Espacio antes de los detalles del espécimen */
+  gap: 0.75rem; /* Espacio entre el grupo título/badge y los botones si están muy juntos */
+}
+
+.spec-title-badge-group {
+  display: flex;
+  flex-direction: column; /* Título arriba, badge abajo */
+  align-items: flex-start; /* Alinear a la izquierda */
+  flex-grow: 1; /* Para que ocupe el espacio disponible y empuje los botones si es necesario */
+  margin-right: 0.5rem; /* Espacio para que no se pegue a los botones */
+}
+
+.spec-card-title {
+  font-size: 1.2rem; /* Como en CategoryCard.css */
+  font-weight: 600; /* Como en CategoryCard.css */
+  color: #020202; /* TU COLOR DORADO de CategoryCard.css */
+  margin-bottom: 0.25rem; /* Menos espacio si el badge está debajo */
+  line-height: 1.2; /* Ajustar para mejor visualización */
+  word-break: break-word;
+}
+
+.spec-card-badge {
+  font-size: 0.7rem; /* Un poco más pequeño si está bajo el título */
+  padding: 0.25em 0.5em;
+  background-color: #FFF8E1 !important; /* TU ESTILO DE BADGE de CategoryCard.css */
+  color: #8C6D1F !important;      
+  border: 1px solid #FCEBC7 !important; 
+  font-weight: 500;
+}
+.spec-card-badge .svg-inline--fa {
+  margin-left: 0.3em;
+}
+
+/* --- SECCIÓN DE DETALLES DEL ESPÉCIMEN --- */
+.spec-details-info {
+  /* margin-top se quita o reduce porque ya hay espacio desde spec-card-top-section */
+  margin-bottom: 0; /* Sin margen inferior si esta es la última sección visible */
+  font-size: 0.875rem;
+  color: #555; /* AJUSTA este color */
+  flex-grow: 1; /* Si quieres que los detalles ocupen más espacio verticalmente */
+}
+.spec-details-info p {
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+.spec-details-info p:last-child {
+  margin-bottom: 0;
+}
+.spec-details-info strong {
+  font-weight: 600;
+  color: #333; /* AJUSTA este color */
+  min-width: 90px; 
+  display: inline-block;
+}
+.spec-details-info .svg-inline--fa {
+  margin-right: 0.6em;
+  color: #777; /* AJUSTA este color */
+  width: 16px;
+  text-align: center;
+}
+
+/* --- SECCIÓN INFERIOR (BOTONES DE ACCIÓN) - AHORA INTEGRADA EN LA SUPERIOR --- */
+/* Ya no se necesita .spec-card-bottom-section si los botones están arriba */
+/* Asegúrate de eliminar la definición de .spec-card-bottom-section si tenía un border-top */
+
+/* Estilos comunes para todos los botones en el ButtonGroup */
+.spec-action-buttons { /* El ButtonGroup ahora está en la top-section */
+  flex-shrink: 0; /* Para que los botones no se encojan si el título es largo */
+}
+
+.spec-action-buttons .action-btn-link,
+.spec-action-buttons .action-btn-filled {
+  padding: 0.25rem 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px; 
+  min-height: 28px;
+  font-size: 0.8rem; 
+  margin-left: 0.3rem; 
+  border-radius: 0.2rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+.spec-action-buttons .action-btn-link:first-child,
+.spec-action-buttons .action-btn-filled:first-child {
+  margin-left: 0;
+}
+
+/* Botones SIN FONDO (Ver, Mover) */
+.spec-action-buttons .action-btn-link {
+  text-decoration: none;
+  border: none !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+.spec-action-buttons .action-btn-link:hover,
+.spec-action-buttons .action-btn-link:focus {
+  text-decoration: none;
+  background-color: transparent !important;
+}
+
+.spec-action-buttons .specimen-view-btn {
+  color: #17a2b8; /* Color Bootstrap "info". ¡AJÚSTALO! */
+}
+.spec-action-buttons .specimen-view-btn:hover,
+.spec-action-buttons .specimen-view-btn:focus {
+  color: #117a8b; /* Color info más oscuro para hover. ¡AJÚSTALO! */
+}
+
+.spec-action-buttons .specimen-move-btn {
+  color: #28a745; /* EJEMPLO: Color Bootstrap "success". ¡DEFINE EL COLOR QUE QUIERAS! */
+}
+.spec-action-buttons .specimen-move-btn:hover,
+.spec-action-buttons .specimen-move-btn:focus {
+  color: #1e7e34; /* EJEMPLO: Color success más oscuro para hover. ¡AJÚSTALO! */
+}
+
+/* --- ESTILOS PARA BOTONES CON FONDO (EDITAR, ELIMINAR) --- */
+.spec-action-buttons .btn-dark {
+  background-color: #343a40 !important; /* COPIA EL COLOR DE TU BOTÓN EDITAR EN CATEGORYCARD */
+  border-color: #343a40 !important;
+  color: white !important;
+}
+.spec-action-buttons .btn-dark:hover {
+  background-color: #23272b !important;
+  border-color: #1d2124 !important;
+}
+
+.spec-action-buttons .btn-danger {
+  background-color: #dc3545 !important; /* COPIA EL COLOR DE TU BOTÓN ELIMINAR EN CATEGORYCARD */
+  border-color: #dc3545 !important;
+  color: white !important;
+}
+.spec-action-buttons .btn-danger:hover {
+  background-color: #c82333 !important;
+  border-color: #bd2130 !important;
+}

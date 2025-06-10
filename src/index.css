@@ -1,0 +1,45 @@
+
+h2 {
+  font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif; 
+  font-weight: 700;  
+  color: '#2E2B26'; 
+  letter-spacing: -0.3px; 
+  
+}
+
+
+.main-layout {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.content-area {
+  flex-grow: 1; 
+  padding: 20px; 
+  transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;
+  overflow-y: auto; 
+  background-color: var(--bs-light-bg-subtle, #ffffff); 
+  width: 100%; 
+  margin-left: 0; 
+}
+
+.content-area.sidebar-active {
+  margin-left: 280px;
+  width: calc(100% - 280px); 
+}
+
+.content-area.sidebar-collapsed {
+  margin-left: 60px; 
+  width: calc(100% - 60px); 
+}
+
+
+@media (max-width: 768px) {
+  .content-area.sidebar-active,
+  .content-area.sidebar-collapsed {
+    margin-left: 0;
+    width: 100%;
+  }
+}

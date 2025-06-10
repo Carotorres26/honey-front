@@ -1,0 +1,380 @@
+/* Estilos Base del Sidebar */
+.sidebar {
+  width: 260px;
+  background: #1a1a1a;
+  color: white;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  transition: width 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.sidebar.collapsed {
+  width: 80px;
+  overflow: visible;
+}
+
+/* Logo */
+.logo-container {
+  padding: 20px 0;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.logo {
+  width: 140px;
+  height: auto;
+  transition: width 0.3s ease-in-out;
+}
+
+.sidebar.collapsed .logo {
+  width: 50px;
+}
+
+/* Contenedor del Menú */
+.sidebar-menu-wrapper {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 15px;
+  overflow: hidden;
+}
+.sidebar.collapsed .sidebar-menu-wrapper {
+  overflow: visible;
+}
+
+/* Listas de Menú */
+.sidebar-menu {
+  list-style: none;
+  padding: 0 10px;
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.sidebar-bottom-menu {
+  margin-top: 15px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Items del Menú (LI) */
+.sidebar-menu li {
+  margin: 3px 0;
+  display: block;
+  position: relative;
+}
+.sidebar.collapsed .dropdown-item {
+    overflow: visible;
+}
+.dropdown-item {
+    overflow: visible;
+}
+
+/* Enlaces (A) y Botones Principales (BUTTON) */
+.sidebar-menu li a,
+.sidebar-menu li .dropdown-toggle,
+.logout-button {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: white; /* Color base */
+    font-size: 1rem;
+    white-space: nowrap;
+    width: 100%;
+    box-sizing: border-box;
+    transition: color 0.2s ease, background-color 0.2s ease;
+    border: none;
+    background: none;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+    position: relative;
+    z-index: 1;
+    border-radius: 6px;
+}
+
+/* Iconos Principales */
+.sidebar-menu li .icon {
+  font-size: 1.1rem;
+  margin-right: 15px;
+  min-width: 20px;
+  text-align: center;
+  flex-shrink: 0;
+  transition: margin-right 0.3s ease-in-out, color 0.2s ease;
+}
+
+/* --- INICIO: Estilo Hover/Active con color #E9C46A --- */
+.sidebar-menu li > a:hover,
+.sidebar-menu li > .dropdown-toggle:hover,
+.sidebar-menu li > .logout-button:hover {
+  background: #E9C46A;
+  color: black;
+}
+.sidebar-menu li > a:hover .icon,
+.sidebar-menu li > .dropdown-toggle:hover .icon,
+.sidebar-menu li > .logout-button:hover .icon {
+     color: black;
+}
+
+.sidebar-menu li.active-link > a,
+.sidebar-menu li.active-link > .dropdown-toggle,
+.sidebar-menu li.active-link > .logout-button {
+  background: #E9C46A;
+  box-shadow: 2px 2px 8px rgba(233, 196, 106, 0.4);
+  color: black;
+}
+.sidebar-menu li.active-link .icon {
+    color: black;
+}
+/* --- FIN: Estilo Hover/Active con NUEVO COLOR --- */
+
+
+/* --- MODIFICADO: Estilo para el botón desplegable CUANDO un hijo está activo --- */
+/* Aplicar el mismo estilo que active-link cuando un hijo está activo */
+.sidebar-menu li .dropdown-toggle.active-parent-button {
+  background: #E9C46A; /* MISMO COLOR SÓLIDO ACTIVO */
+  box-shadow: 2px 2px 8px rgba(233, 196, 106, 0.4); /* MISMA SOMBRA ACTIVA */
+  color: black; /* MISMO TEXTO NEGRO ACTIVO */
+}
+/* Asegurar que el icono y la flecha también sean negros */
+.sidebar-menu li .dropdown-toggle.active-parent-button .icon,
+.sidebar-menu li .dropdown-toggle.active-parent-button .arrow-icon {
+    color: black; /* MISMO ICONO/FLECHA NEGRO ACTIVO */
+}
+/* --- FIN MODIFICACIÓN --- */
+
+
+/* Desplegable (Dropdown) */
+.dropdown-toggle {
+  position: relative;
+}
+
+.arrow-icon {
+  margin-left: auto;
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+/* Color de flecha en estados normales de hover/activo */
+.sidebar-menu li > a:hover .arrow-icon,
+.sidebar-menu li > .dropdown-toggle:hover .arrow-icon,
+.sidebar-menu li.active-link > a .arrow-icon,
+.sidebar-menu li.active-link > .dropdown-toggle .arrow-icon {
+    color: black;
+}
+.arrow-icon.open {
+  transform: rotate(180deg);
+}
+
+/* Submenú (UL desplegable) - Estilo Normal (Expandido) */
+.submenu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+  opacity: 0;
+  border-radius: 4px;
+  position: relative;
+  z-index: 0;
+}
+
+.submenu.open {
+  max-height: 300px;
+  opacity: 1;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Items dentro del submenú (LI) - Normal */
+.submenu li {
+  margin: 0;
+  overflow: visible;
+  border-radius: 4px;
+  position: relative;
+}
+
+/* Enlaces dentro del submenú (A) - Normal */
+.submenu li a {
+  padding: 8px 15px 8px 30px;
+  font-size: 0.9rem;
+  color: #cccccc;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-radius: 4px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  background-color: transparent;
+  position: relative;
+  z-index: 1;
+}
+
+/* Hover y Activo para submenú expandido con #E9C46A SÓLIDO */
+.submenu li a:hover {
+  background-color: #E9C46A;
+  color: black;
+}
+.submenu li.active-link > a {
+    background-color: #E9C46A;
+    color: black;
+    font-weight: 500;
+}
+
+/* Iconos dentro del submenú - Normal */
+.submenu li .icon {
+  font-size: 0.9rem;
+  margin-right: 10px;
+  transition: color 0.2s ease;
+}
+.submenu li a:hover .icon,
+.submenu li.active-link > a .icon {
+    color: black;
+}
+
+/* --- INICIO: Estilos Sidebar COLAPSADO --- */
+.sidebar.collapsed .sidebar-menu li a,
+.sidebar.collapsed .sidebar-menu li .logout-button,
+.sidebar.collapsed .sidebar-menu li .dropdown-toggle {
+    justify-content: center;
+    padding: 12px 0;
+    border-radius: 6px;
+}
+.sidebar.collapsed .sidebar-menu li .icon {
+  margin-right: 0;
+  font-size: 1.4rem;
+}
+.sidebar.collapsed .arrow-icon {
+  display: none;
+}
+
+/* --- INICIO: Estilos para Submenú COLAPSADO (Flyout) --- */
+.sidebar.collapsed .submenu {
+  position: absolute;
+  left: 100%;
+  top: 0;
+  transform: translateX(5px) scaleY(0.95);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  background-color: #2a2a2a;
+  border-radius: 5px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+  padding: 8px;
+  z-index: 1000;
+  transition: opacity 0.2s ease, visibility 0s linear 0.2s, transform 0.2s ease;
+  margin: 0;
+  max-height: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sidebar.collapsed .dropdown-item.open > .submenu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(10px) scaleY(1);
+  transition-delay: 0s;
+}
+
+/* Estilos para items y links dentro del submenú COLAPSADO */
+.sidebar.collapsed .submenu li {
+    margin: 0;
+}
+.sidebar.collapsed .submenu li a {
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #e0e0e0;
+  background: transparent;
+  border-radius: 4px;
+  white-space: normal;
+  width: auto;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Hover y Activo para flyout con #E9C46A SÓLIDO */
+.sidebar.collapsed .submenu li a:hover {
+  background-color: #E9C46A !important;
+  color: black !important;
+}
+.sidebar.collapsed .submenu li.active-link > a {
+    background-color: #E9C46A !important;
+    color: black !important;
+}
+
+/* Iconos dentro del submenú COLAPSADO */
+.sidebar.collapsed .submenu li .icon {
+  margin: 0;
+  font-size: 1.3rem;
+  transition: color 0.2s ease;
+}
+.sidebar.collapsed .submenu li a:hover .icon,
+.sidebar.collapsed .submenu li.active-link > a .icon {
+    color: black !important;
+}
+
+/* --- Estilo Menu Button Requerido --- */
+.menu-btn {
+  position: fixed;
+  top: 20px;
+  left: 260px;
+  font-size: 26px;
+  cursor: pointer;
+  z-index: 1001;
+  background: none;
+  border: none;
+  color: black;
+  transition: left 0.3s ease-in-out;
+  padding: 0;
+}
+.sidebar.collapsed ~ .menu-btn {
+  left: 80px;
+}
+.menu-btn:hover .menu-icon {
+  transform: scale(1.1);
+}
+.menu-icon {
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+/* Overlay para submenú colapsado */
+.submenu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 999;
+}
+
+.scrollable-menu {
+  max-height: calc(100vh - 150px); /* Ajusta según tu diseño */
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #888 transparent;
+}
+
+.scrollable-menu::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollable-menu::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 3px;
+}

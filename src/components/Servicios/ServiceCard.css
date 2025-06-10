@@ -1,0 +1,109 @@
+/* src/components/Servicios/ServiceCard.css */
+
+.service-card {
+  border-radius: 0.60rem !important;
+  transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+  border: 1px solid #e0e0e0;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: 100%; /* Asegura que ocupe el ancho de la Col */
+}
+  
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15) !important;
+}
+  
+.service-card-img-container {
+  position: relative;
+  width: 100%;
+  padding-top: 70%; 
+  background-color: #f8f9fa; 
+  overflow: hidden;
+  border-top-left-radius: 0; /* ESQUINAS RECTAS ARRIBA */
+  border-top-right-radius: 0; /* ESQUINAS RECTAS ARRIBA */
+}
+  
+.service-card-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain !important;
+  object-position: center center;
+}
+
+.service-card-no-image-frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 8px; /* Marco para el placeholder azul */
+  box-sizing: border-box;
+  border-top-left-radius: 0; /* ESQUINAS RECTAS ARRIBA */
+  border-top-right-radius: 0; /* ESQUINAS RECTAS ARRIBA */
+}
+
+.service-card-no-image-content {
+  width: 100%;
+  height: 100%;
+  background-color: #7398c4; /* Color azul del placeholder */
+  border-radius: 0; /* Contenido azul completamente rectangular */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+  
+.service-card-img-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color 0.3s ease-in-out;
+  pointer-events: none;
+  border-top-left-radius: 0; /* ESQUINAS RECTAS ARRIBA */
+  border-top-right-radius: 0; /* ESQUINAS RECTAS ARRIBA */
+}
+  
+.service-card:hover .service-card-img-overlay {
+  background-color: rgba(0, 0, 0, 0.08);
+}
+  
+.service-card-title {
+  font-weight: 600;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.service-card-description-wrapper {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(0.875rem * 1.5 * 3);
+  overflow: hidden;
+}
+  
+.service-card-description {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #555;
+}
+  
+.text-truncate-multiline {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.inactive-card {
+  opacity: 0.75;
+}

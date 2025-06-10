@@ -1,0 +1,123 @@
+/* src/components/Categories/CategoryCard.css */
+
+.category-card-final {
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e0e0e0;
+  background-color: #ffffff;
+  color: #333;
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+}
+
+.category-card-final:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.category-card-final.inactive {
+   opacity: 0.8;
+}
+.category-card-final.inactive .category-title-bright-yellow {
+  color: #a0a0a0; /* Título grisáceo si está inactivo */
+}
+
+/* Estilos base para el badge del contador (aplicado a todos los estados inicialmente) */
+.category-card-final .category-card-count-badge { /* Aumentada especificidad */
+  font-size: 0.75rem;
+  padding: 0.3em 0.65em;
+  /* Colores por defecto (activos) para el badge */
+  background-color: #FFF8E1 !important; /* Fondo amarillo muy pálido (FORZADO) */
+  color: #8C6D1F !important;      /* Texto marrón/dorado oscuro (FORZADO) */
+  border: 1px solid #FCEBC7 !important; /* Borde amarillo pálido (FORZADO) */
+  font-weight: 500;
+  opacity: 1; /* Asegurar opacidad completa por defecto */
+}
+
+/* Estilos específicos para el badge cuando la tarjeta está INACTIVA (sin grises) */
+.category-card-final.inactive .category-card-count-badge {
+  background-color: #FFFBF0 !important; /* Fondo amarillo aún más pálido (FORZADO) */
+  color: #A88D4C !important;      /* Marrón/dorado más claro/apagado (FORZADO) */
+  border-color: #F8F0D8 !important; /* Borde muy pálido (FORZADO) */
+  /* opacity: 0.9; */ /* Opcional: ligera transparencia si quieres diferenciar más */
+}
+
+.category-card-count-badge .svg-inline--fa {
+  margin-left: 0.3em;
+  /* El color del icono se hereda del color del texto del badge */
+}
+
+
+.category-card-body {
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 110px;
+}
+
+.card-top-section {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 0.8rem;
+}
+
+.category-card-title.category-title-bright-yellow {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #060606; /* Amarillo brillante */
+  margin-bottom: 0.3rem;
+  line-height: 1.3;
+}
+
+.card-bottom-section {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.category-action-buttons .btn-action {
+  padding: 0.25rem 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px;
+  min-height: 28px;
+  font-size: 0.8rem;
+}
+
+/* --- Estilos específicos para botones COMO EN ROLESTABLE --- */
+
+.btn-toggle {
+  color: white !important;
+}
+.btn-toggle.btn-success:hover {
+    background-color: #218838 !important;
+    border-color: #1e7e34 !important;
+}
+.btn-toggle.btn-danger:hover {
+     background-color: #c82333 !important;
+     border-color: #bd2130 !important;
+}
+
+.btn-edit {
+  background-color: #343a40 !important;
+  border-color: #343a40 !important;
+  color: white !important;
+}
+.btn-edit:hover {
+  background-color: #23272b !important;
+  border-color: #1d2124 !important;
+}
+
+.btn-delete {
+  background-color: #dc3545 !important;
+  border-color: #dc3545 !important;
+  color: white !important;
+}
+.btn-delete:hover {
+  background-color: #c82333 !important;
+  border-color: #bd2130 !important;
+}

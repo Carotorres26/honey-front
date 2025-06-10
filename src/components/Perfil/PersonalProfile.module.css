@@ -1,0 +1,183 @@
+.profileDisplayCard {
+    background-color: #FFFFFF;
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+    max-width: 950px;
+    margin: 3rem auto 1.5rem auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.contentForeground {
+    position: relative;
+    z-index: 1;
+}
+
+.headerSection {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.nameText {
+    font-size: 2.75rem;
+    font-weight: 700;
+    color: #4A4A4A;
+    margin: 0 0 0.75rem 0;
+    word-break: break-word;
+}
+
+.titleSeparatorLine {
+    height: 4px;
+    width: 80px;
+    background-color: #A37E2C;
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+.mainContentWrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.avatarContainer {
+    flex-shrink: 0;
+    text-align: center;
+}
+
+.avatarImage {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #E9C46A;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.informationGrid {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1.8rem 2.5rem;
+}
+
+/* .infoEntry {
+    /* No specific styles, but class is good for structure */
+/*} */
+
+.infoLabel {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #A37E2C;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.infoValue {
+    font-size: 1.15rem;
+    color: #4A4A4A;
+    word-break: break-word;
+}
+
+.actionsContainer {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eaeaea;
+}
+
+.actionButton {
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    border: none;
+    background-color: #A37E2C;
+    color: white;
+    text-align: center;
+    font-weight: 600;
+    transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.actionButton:hover {
+    background-color: #866623;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.actionButton:active {
+    transform: translateY(0px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.buttonDisabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.buttonDisabled:hover {
+    background-color: #A37E2C; /* Revert hover effect */
+    transform: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+
+.decorativeCircleOne {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: #E9C46A;
+    border-radius: 50%;
+    opacity: 0.25;
+    bottom: -30px;
+    left: 5%;
+    z-index: 0;
+}
+
+.decorativeCircleTwo {
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    background-color: #A37E2C;
+    border-radius: 50%;
+    opacity: 0.2;
+    top: 55%;
+    right: -40px;
+    z-index: 0;
+}
+
+
+/* --- MEDIA QUERIES --- */
+@media (max-width: 768px) {
+    .mainContentWrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .actionsContainer {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .decorativeCircleOne {
+        width: 70px;
+        height: 70px;
+        bottom: -20px;
+        left: 2%;
+    }
+
+    .decorativeCircleTwo {
+        width: 90px;
+        height: 90px;
+        top: auto;
+        bottom: 10%;
+        right: -20px;
+    }
+}

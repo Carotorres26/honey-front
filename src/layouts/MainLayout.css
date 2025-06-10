@@ -1,0 +1,27 @@
+/* src/layouts/MainLayout.css */
+
+.content-area {
+  margin-left: 260px; /* Coincide con .sidebar width */
+  /* width: calc(100% - 260px); */ /* Quitamos width, debería ajustarse solo */
+  padding: 1.5rem; /* Espaciado interno, ajusta si prefieres otro */
+  min-height: 100vh;
+  transition: margin-left 0.3s ease-in-out; /* Misma transición que .sidebar */
+  background-color: #ffffff; /* O el color de fondo que tenías */
+  box-sizing: border-box;
+}
+
+.content-area.sidebar-collapsed {
+  margin-left: 80px; /* Coincide con .sidebar.collapsed width */
+  /* width: calc(100% - 80px); */ /* Quitamos width */
+}
+
+/* Media Query simple */
+@media (max-width: 768px) {
+  .content-area,
+  .content-area.sidebar-collapsed {
+    margin-left: 80px; /* Mantiene espacio para sidebar colapsado en móvil */
+    /* O margin-left: 0; si el sidebar se superpone */
+    /* width: calc(100% - 80px); */ /* Quitamos width */
+     padding: 1rem;
+  }
+}
