@@ -12,7 +12,7 @@ export const moduleNameMap = {
   acceso_categorias: "Categoría de Ejemplares", 
   acceso_contratos: "Contratos",
   acceso_pagos: "Pagos",
-  acceso_medicina: "Medicina",
+  acceso_medicina: "Control de ejemplares",
   acceso_ejemplares: "Ejemplares", 
   acceso_dashboard: "Dashboard"   
 };

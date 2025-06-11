@@ -208,7 +208,8 @@ const VacunacionPage = () => {
     try {
       let successMessage = "";
       if (isEditing) {
-        await updateVacunacion(selectedVacunacion.id, dataToSend);
+        const { specimenId, ...dataWithoutSpecimen } = dataToSend;
+        await updateVacunacion(selectedVacunacion.id, dataWithoutSpecimen);
         successMessage = "Registro de vacunación actualizado exitosamente.";
       } else {
         await createVacunacion(dataToSend);
@@ -486,9 +487,17 @@ const VacunacionPage = () => {
             )}
             <VacunacionForm
                 key={selectedVacunacion?.id || 'new-vacunacion'}
-                initialData={selectedVacunacion || INITIAL_FORM_DATA}
-                onSubmit={handleFormSubmit}
-                onCancel={toggleModal}
+                formData={selectedVacunacion || INITIAL_FORM_DATA}
+                editing={!!selectedVacunacion?.id}
+                onFormSubmit={handleFormSubmit}
+                onFormCancel={toggleModal}
+                handleInputChange={(e) => {
+                    const { name, value } = e.target;
+                    setSelectedVacunacion(prev => ({
+                        ...prev,
+                        [name]: value
+                    }));
+                }}
                 specimens={specimens}
                 isSaving={isSaving}
                 fieldErrors={modalFieldErrors}

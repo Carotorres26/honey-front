@@ -469,7 +469,7 @@ const AlimentacionPage = () => {
                 onFormSubmit={handleMainFormSubmit}
                 onFormCancel={handleMainFormCancel}
                 editing={editing}
-                specimens={specimens.filter(s => s.estado === true || String(s.estado).toLowerCase() === "activo")}
+                specimens={specimens}
                 loadingSpecimens={loadingSpecimens}
                 isSubmitting={isSubmittingForm}
                 apiError={formModalApiError}
