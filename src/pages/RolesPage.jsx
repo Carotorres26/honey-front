@@ -199,7 +199,6 @@ const RolesPage = () => {
         name: roleDataFromForm.name,
         permissions: Array.isArray(roleDataFromForm.permissions) ? roleDataFromForm.permissions : [],
       };
-      console.log(`Saving role data (ID: ${roleId || 'new'}):`, dataToSend);
       let responseMessage = "";
       if (roleId) {
         await updateRole(roleId, dataToSend);
