@@ -137,7 +137,7 @@ const VacunacionForm = ({
         return;
     }
     if (typeof onFormSubmit === 'function') {
-      onFormSubmit();
+      onFormSubmit(formData);
     } else {
       console.error("VacunacionForm: onFormSubmit prop no es una función.");
     }

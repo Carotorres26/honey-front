@@ -1,8 +1,10 @@
 import axios from "axios";
 
 // Asegúrate que estas variables de entorno estén definidas en tu .env
-const API_AUTH_URL = import.meta.env.VITE_API_AUTH_URL || "http://localhost:3000/api/auth";
-const API_USERS_URL = import.meta.env.VITE_API_USERS_URL || "http://localhost:3000/api/users";
+// const API_AUTH_URL = import.meta.env.VITE_API_AUTH_URL || "http://localhost:3000/api/auth";
+// const API_USERS_URL = import.meta.env.VITE_API_USERS_URL || "http://localhost:3000/api/users";
+const API_AUTH_URL = import.meta.env.VITE_API_AUTH_URL || "https://backhoney.onrender.com/api/auth";
+const API_USERS_URL = import.meta.env.VITE_API_USERS_URL || "https://backhoney.onrender.com/api/users";
 
 const apiClient = axios.create({
   // Podrías configurar baseURL aquí si todas tus rutas empiezan igual,

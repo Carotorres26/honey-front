@@ -1,7 +1,7 @@
 // src/utils/apiClient.js
 import axios from "axios";
 
-const SERVER_BASE_URL = import.meta.env.VITE_API_URL || "https://backhoney.onrender.com";
+const SERVER_BASE_URL = "https://backhoney.onrender.com";
 
 const apiClient = axios.create({
   baseURL: `${SERVER_BASE_URL}/api`,
